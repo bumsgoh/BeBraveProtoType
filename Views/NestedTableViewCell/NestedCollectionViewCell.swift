@@ -19,6 +19,14 @@ class NestedCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let loveItButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(#imageLiteral(resourceName: "loveit"), for: .normal)
+        button.tintColor = #colorLiteral(red: 0.8411337733, green: 0.3516849279, blue: 0.2877530754, alpha: 1)
+        return button
+    }()
+    
     let titlelabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -46,11 +54,11 @@ class NestedCollectionViewCell: UICollectionViewCell {
         setUpUI()
         artworkImageView.clipsToBounds = true
         //self.layer.masksToBounds = true
-        self.contentView.layer.cornerRadius = self.frame.size.width * 0.2
+        self.contentView.layer.cornerRadius = self.frame.size.width * 0.15
         self.contentView.layer.masksToBounds = true
         self.backgroundColor = UIColor.clear
         
-        self.layer.cornerRadius = self.frame.size.width * 0.2
+        self.layer.cornerRadius = self.frame.size.width * 0.15
         self.layer.shadowColor = UIColor.gray.cgColor
         self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowOpacity = 0.4
@@ -71,6 +79,7 @@ class NestedCollectionViewCell: UICollectionViewCell {
     }
     func setUpUI() {
         artworkImageView.addSubview(titlelabel)
+       // artworkImageView.addSubview(loveItButton)
         artworkImageView.addSubview(contentslabel)
         contentView.addSubview(artworkImageView)
         //contentView.backgroundColor = UIColor.red
@@ -88,8 +97,11 @@ class NestedCollectionViewCell: UICollectionViewCell {
         titlelabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
         titlelabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
         titlelabel.bottomAnchor.constraint(equalTo: contentslabel.topAnchor, constant: -2).isActive = true
+      /*
+        loveItButton.trailingAnchor.constraint(equalTo: artworkImageView.trailingAnchor, constant: -8).isActive = true
+        loveItButton.topAnchor.constraint(equalTo: artworkImageView.topAnchor, constant: 8).isActive = true
        // titlelabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
+*/
         
 
     }

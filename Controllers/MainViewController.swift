@@ -32,7 +32,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         setUpUI()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         
         
         // Do any additional setup after loading the view.
@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
         view.addSubview(nestedTableView)
         nestedTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         nestedTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        nestedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120).isActive = true
+        nestedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 90).isActive = true
         nestedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
     }
@@ -68,7 +68,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,7 +106,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
    
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 230, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -116,6 +116,18 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
        // layout.minimumLineSpacing = -(layout.itemSize.width * 0.5)
         print(layout.itemSize)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? NestedCollectionViewCell else {
+            return
+        }
+        let DetailVC = DetailViewController()
+        
+        DetailVC.artworkImageView.image = cell.artworkImageView.image
+        navigationController?.pushViewController(DetailVC, animated: true)
+        
     }
    
   
