@@ -4,7 +4,7 @@
 https://github.com/StyleShare/swift-style-guide
 https://github.com/raywenderlich/swift-style-guide
 
-1.코드를 주로 이용하되 스토리보드에 반영할 수 있도록 구성 /b
+1.코드를 주로 이용하되 스토리보드에 반영할 수 있도록 구성 </b>
 guard let return 시 return 할 것이 있으면 엔터 없으면 { return }
 변수 초기화 var array: [Int] = []
 self, types 추론 가능한것 안쓰기
